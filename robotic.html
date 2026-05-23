@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Robotic systems for electronics manufacturing automation — tabletop XYZ robots, SCARA robots and integrated dispensing cells. Eprocent Technology Malaysia, Singapore, Thailand." />
+  <title>Robotic Systems | Eprocent Technology</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero{background:var(--navy);padding:72px 24px 64px;position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(127,119,221,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(127,119,221,0.04) 1px,transparent 1px);background-size:40px 40px}
+    .page-hero::after{content:'';position:absolute;top:-160px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(127,119,221,0.07) 0%,transparent 70%);pointer-events:none}
+    .page-hero-inner{position:relative;z-index:1}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:20px}
+    .breadcrumb a{color:rgba(255,255,255,0.4);text-decoration:none;transition:color var(--transition)}
+    .breadcrumb a:hover{color:var(--accent)}
+    .breadcrumb span{color:rgba(255,255,255,0.2)}
+    .page-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(32px,4vw,48px);color:var(--white);letter-spacing:-0.03em;line-height:1.1;margin-bottom:16px}
+    .page-title em{font-style:normal;color:#7F77DD}
+    .page-sub{font-size:17px;color:rgba(255,255,255,0.5);max-width:580px;line-height:1.7}
+
+    .overview{padding:72px 24px;background:var(--white)}
+    .overview-text h2{font-family:'Syne',sans-serif;font-size:clamp(22px,2.5vw,30px);font-weight:700;color:var(--text-main);letter-spacing:-0.02em;margin-bottom:16px;line-height:1.3;max-width:640px}
+    .overview-text p{font-size:15px;color:var(--text-sec);line-height:1.8;margin-bottom:14px;max-width:700px}
+
+    .product-section{padding:64px 24px 48px}
+    .product-section:nth-child(even){background:var(--off-white)}
+    .section-chip{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:#7F77DD;background:rgba(127,119,221,0.1);padding:4px 10px;border-radius:4px;margin-bottom:12px}
+    .product-section h2{font-family:'Syne',sans-serif;font-size:26px;font-weight:700;color:var(--text-main);letter-spacing:-0.02em;margin-bottom:10px}
+    .intro-p{font-size:15px;color:var(--text-sec);line-height:1.7;max-width:720px;margin-bottom:32px}
+
+    .item-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+    .item-card{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:28px;transition:border-color var(--transition),transform var(--transition),box-shadow var(--transition);display:flex;flex-direction:column}
+    .item-card:hover{border-color:#7F77DD;transform:translateY(-2px);box-shadow:0 8px 24px rgba(127,119,221,0.08)}
+    .item-brand{font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
+    .item-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--text-main);margin-bottom:8px}
+    .item-subtitle{font-size:12px;font-weight:500;color:#7F77DD;background:rgba(127,119,221,0.1);padding:3px 10px;border-radius:4px;display:inline-block;margin-bottom:14px}
+    .item-desc{font-size:13px;color:var(--text-sec);line-height:1.6;margin-bottom:16px;flex:1}
+    .feature-list{list-style:none;padding:0;border-top:0.5px solid var(--border);padding-top:14px;margin-bottom:16px}
+    .feature-list li{font-size:13px;color:var(--text-sec);padding:4px 0;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+    .feature-list li::before{content:'→';color:#7F77DD;font-size:12px;flex-shrink:0;margin-top:1px}
+    .item-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+    .item-tag{font-size:11px;color:var(--text-muted);background:var(--off-white);padding:3px 8px;border-radius:4px;border:0.5px solid var(--border)}
+    .enquire-btn{display:inline-block;font-size:13px;color:var(--accent);font-weight:500;text-decoration:none;margin-top:auto}
+
+    .app-section{padding:72px 24px;background:var(--white)}
+    .app-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:36px}
+    .app-card{background:var(--off-white);border:0.5px solid var(--border);border-radius:var(--radius-md);padding:20px;text-align:center;transition:border-color var(--transition)}
+    .app-card:hover{border-color:#7F77DD}
+    .app-icon{font-size:26px;margin-bottom:10px}
+    .app-name{font-size:13px;font-weight:500;color:var(--text-main);margin-bottom:4px}
+    .app-desc{font-size:12px;color:var(--text-sec);line-height:1.4}
+
+    .specs-section{padding:72px 24px;background:var(--off-white)}
+    .specs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:40px}
+    .spec-card{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:24px;text-align:center}
+    .spec-icon{font-size:28px;margin-bottom:12px}
+    .spec-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:600;color:var(--text-main);margin-bottom:8px}
+    .spec-body{font-size:13px;color:var(--text-sec);line-height:1.6}
+
+    .cta-band{background:var(--navy);padding:72px 24px;text-align:center}
+    .cta-band h2{font-family:'Syne',sans-serif;font-size:clamp(24px,3vw,34px);font-weight:700;color:var(--white);letter-spacing:-0.02em;margin-bottom:14px}
+    .cta-band p{font-size:16px;color:rgba(255,255,255,0.5);margin-bottom:28px}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">epro<span>cent</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="nav-cta">Get a quote</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner container">
+      <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><a href="products.html">Products</a><span>›</span><span>Robotic systems</span></div>
+      <h1 class="page-title">Robotic <em>automation</em><br>systems</h1>
+      <p class="page-sub">Tabletop XYZ robots, SCARA systems and integrated dispensing cells for consistent, repeatable electronics manufacturing automation.</p>
+    </div>
+  </div>
+
+  <section class="overview">
+    <div class="container">
+      <div class="overview-text reveal">
+        <h2>Automate your dispensing and assembly for consistent results at scale</h2>
+        <p>Robotic automation removes the natural variation that comes with manual processes — operator fatigue, positioning differences and speed inconsistency. Once programmed, a robot delivers the same result every cycle, every shift, at production speed.</p>
+        <p>Our robotic systems are a natural extension of our dispensing product line. A Vermes MDS jet dispenser or San Ei Tech dispensing valve mounted on a 3-axis or SCARA robot gives you precision fluid application with fully automated XYZ positioning — combining the best of both product ranges into a single integrated solution.</p>
+        <p>Every system is commissioned and supported by our Penang engineering team. We help you integrate it into your process, not just deliver the hardware.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-section">
+    <div class="container">
+      <span class="section-chip">Robotic systems range</span>
+      <h2>Available systems</h2>
+      <p class="intro-p">From compact tabletop units to fully integrated production cells — scalable automation for every production volume.</p>
+      <div class="item-grid">
+
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">3-Axis Tabletop Robot</div>
+          <span class="item-subtitle">XYZ · Entry-level automation</span>
+          <p class="item-desc">Compact 3-axis XYZ tabletop robot for automating dispensing, screwdriving and light assembly on a standard production bench. Easy to programme with saved programmes for quick job changeover.</p>
+          <ul class="feature-list">
+            <li>3-axis XYZ motion — dots, lines, arcs, circles</li>
+            <li>Compatible with dispensing valves and tools</li>
+            <li>Saved programme storage for multiple jobs</li>
+            <li>Compact footprint — fits on standard bench</li>
+            <li>Fast setup and changeover between products</li>
+          </ul>
+          <div class="item-tags"><span class="item-tag">3-axis XYZ</span><span class="item-tag">Tabletop</span><span class="item-tag">Dispensing</span><span class="item-tag">Screwdriving</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">4-Axis SCARA Robot</div>
+          <span class="item-subtitle">SCARA · High speed</span>
+          <p class="item-desc">High-speed 4-axis SCARA robot for pick-and-place, precision assembly and material handling. Excellent repeatability across millions of cycles with fast cycle times for volume production.</p>
+          <ul class="feature-list">
+            <li>4-axis SCARA motion</li>
+            <li>High-speed pick-and-place cycles</li>
+            <li>Excellent positional repeatability</li>
+            <li>Suitable for component placement and material handling</li>
+            <li>Integration with conveyor and line systems</li>
+          </ul>
+          <div class="item-tags"><span class="item-tag">SCARA</span><span class="item-tag">4-axis</span><span class="item-tag">Pick &amp; place</span><span class="item-tag">High speed</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">Robotic Dispensing Cell</div>
+          <span class="item-subtitle">Turnkey · Integrated</span>
+          <p class="item-desc">Fully integrated turnkey cell combining robot, dispensing valve, vision guidance system and conveyor handling. Complete solution engineered and commissioned for direct production line integration.</p>
+          <ul class="feature-list">
+            <li>Robot + dispenser + vision + conveyor — all integrated</li>
+            <li>Vision-guided dispensing for high-accuracy placement</li>
+            <li>Turnkey — commissioned ready for production</li>
+            <li>Custom engineering to match your product and process</li>
+            <li>Operator training included</li>
+          </ul>
+          <div class="item-tags"><span class="item-tag">Turnkey</span><span class="item-tag">Vision-guided</span><span class="item-tag">Integrated cell</span><span class="item-tag">Custom</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="app-section">
+    <div class="container">
+      <p class="section-label">Where our robots are used</p>
+      <h2 class="section-title">Applications</h2>
+      <p class="section-sub">Robotic automation applies across every process where consistency, speed and repeatability matter.</p>
+      <div class="app-grid">
+        <div class="app-card reveal"><div class="app-icon">💧</div><div class="app-name">Automated dispensing</div><p class="app-desc">Robot-guided adhesive, epoxy and solder paste application</p></div>
+        <div class="app-card reveal"><div class="app-icon">🔩</div><div class="app-name">Screwdriving</div><p class="app-desc">Automated fastening with torque control</p></div>
+        <div class="app-card reveal"><div class="app-icon">🤏</div><div class="app-name">Pick and place</div><p class="app-desc">High-speed component and material handling</p></div>
+        <div class="app-card reveal"><div class="app-icon">🔍</div><div class="app-name">Vision-guided assembly</div><p class="app-desc">Camera-guided precision placement tasks</p></div>
+        <div class="app-card reveal"><div class="app-icon">🛡️</div><div class="app-name">Conformal coating</div><p class="app-desc">Selective automated coating application</p></div>
+        <div class="app-card reveal"><div class="app-icon">🧪</div><div class="app-name">Potting &amp; encapsulation</div><p class="app-desc">Automated two-component epoxy dispensing</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="specs-section">
+    <div class="container">
+      <p class="section-label">Key advantages</p>
+      <h2 class="section-title">Why automate with Eprocent</h2>
+      <div class="specs-grid">
+        <div class="spec-card reveal"><div class="spec-icon">🎯</div><div class="spec-title">Consistent results</div><p class="spec-body">Same output every cycle — eliminates operator variation and process drift across shifts</p></div>
+        <div class="spec-card reveal"><div class="spec-icon">⚡</div><div class="spec-title">Higher throughput</div><p class="spec-body">Robots maintain peak speed all shift — no fatigue, no slowing down toward end of day</p></div>
+        <div class="spec-card reveal"><div class="spec-icon">🔄</div><div class="spec-title">Easy reprogramming</div><p class="spec-body">Switch products quickly with saved programmes — minimal changeover downtime</p></div>
+        <div class="spec-card reveal"><div class="spec-icon">🔗</div><div class="spec-title">Dispenser integration</div><p class="spec-body">Direct integration with Vermes MDS and San Ei Tech dispensing valves we also supply</p></div>
+        <div class="spec-card reveal"><div class="spec-icon">🏭</div><div class="spec-title">Scalable</div><p class="spec-body">Start with a tabletop unit — scale to full integrated cells as volume and needs grow</p></div>
+        <div class="spec-card reveal"><div class="spec-icon">🛠️</div><div class="spec-title">Local commissioning</div><p class="spec-body">Our Penang engineers commission the system and train your operators on-site</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <h2>Ready to automate your process?</h2>
+    <p>Tell us your application, production volume and current process — we will recommend the right solution.</p>
+    <a href="contact.html" class="btn-primary">Talk to our engineers →</a>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">epro<span>cent</span></div>
+      <ul class="footer-links"><li><a href="products.html">Products</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul>
+    </div>
+    <div class="footer-inner"><p class="footer-copy">© 2026 Eprocent Technology Sdn Bhd. All rights reserved. Designed &amp; developed by Aminat Olaide.</p></div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

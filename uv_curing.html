@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Phoseon UV LED curing systems and EIT UV radiometers — authorised dealer in Malaysia, Singapore, Thailand and China. FireEdge, FireFly, FireJet, FireLine, FirePower, FireFlex, StarFire Max." />
+  <title>UV LED Curing Systems | Eprocent Technology</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero { background: var(--navy); padding: 72px 24px 64px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(239,159,39,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(239,159,39,0.04) 1px, transparent 1px); background-size: 40px 40px; }
+    .page-hero::after { content: ''; position: absolute; top: -160px; right: -80px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(239,159,39,0.07) 0%, transparent 70%); pointer-events: none; }
+    .page-hero-inner { position: relative; z-index: 1; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+    .breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color var(--transition); }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: rgba(255,255,255,0.2); }
+    .page-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); color: var(--white); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px; }
+    .page-title em { font-style: normal; color: #EF9F27; }
+    .page-sub { font-size: 17px; color: rgba(255,255,255,0.5); max-width: 580px; line-height: 1.7; }
+
+    /* BRAND INTRO */
+    .brand-intro { padding: 72px 24px; background: var(--white); }
+    .brand-intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .brand-block { border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 32px; }
+    .brand-name { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: var(--text-main); letter-spacing: -0.02em; margin-bottom: 8px; }
+    .brand-tag { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: #EF9F27; background: rgba(239,159,39,0.1); padding: 3px 10px; border-radius: 4px; margin-bottom: 14px; }
+    .brand-desc { font-size: 14px; color: var(--text-sec); line-height: 1.7; margin-bottom: 16px; }
+    .wavelength-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .wl-chip { font-size: 12px; font-weight: 500; color: var(--accent); background: var(--accent-dim); border: 0.5px solid rgba(59,158,255,0.2); padding: 4px 10px; border-radius: 999px; }
+
+    /* SECTION TABS */
+    .tab-nav { background: var(--off-white); border-bottom: 0.5px solid var(--border); padding: 0 24px; position: sticky; top: 64px; z-index: 50; }
+    .tab-inner { max-width: var(--max-w); margin: 0 auto; display: flex; gap: 4px; overflow-x: auto; padding: 12px 0; scrollbar-width: none; }
+    .tab-inner::-webkit-scrollbar { display: none; }
+    .tab-btn { white-space: nowrap; font-size: 13px; font-weight: 500; padding: 7px 16px; border-radius: 999px; border: 0.5px solid var(--border); background: var(--white); color: var(--text-sec); cursor: pointer; transition: all var(--transition); }
+    .tab-btn:hover, .tab-btn.active { background: #EF9F27; color: var(--white); border-color: #EF9F27; }
+
+    /* PRODUCT SECTIONS */
+    .product-section { padding: 64px 24px 48px; }
+    .product-section:nth-child(even) { background: var(--off-white); }
+    .section-chip { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: #EF9F27; background: rgba(239,159,39,0.1); padding: 4px 10px; border-radius: 4px; margin-bottom: 12px; }
+    .product-section h2 { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em; margin-bottom: 10px; }
+    .product-section .app-label { font-size: 13px; color: var(--text-sec); margin-bottom: 28px; line-height: 1.6; }
+    .product-section .app-label strong { color: var(--text-main); }
+
+    .item-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+    .item-card { background: var(--white); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 24px; transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition); }
+    .item-card:hover { border-color: #EF9F27; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(239,159,39,0.08); }
+    .item-brand { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+    .item-name { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-main); margin-bottom: 8px; }
+    .item-desc { font-size: 13px; color: var(--text-sec); line-height: 1.6; }
+    .item-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .item-tag { font-size: 11px; color: var(--text-muted); background: var(--off-white); padding: 3px 8px; border-radius: 4px; border: 0.5px solid var(--border); }
+    .enquire-btn { display: inline-block; margin-top: 16px; font-size: 13px; color: var(--accent); font-weight: 500; text-decoration: none; }
+
+    /* COMPARE TABLE */
+    .compare-section { padding: 72px 24px; background: var(--white); }
+    .compare-table { width: 100%; border-collapse: collapse; margin-top: 40px; border: 0.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+    .compare-table th { background: var(--navy); color: var(--white); font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; padding: 14px 18px; text-align: left; }
+    .compare-table td { padding: 13px 18px; font-size: 14px; color: var(--text-sec); border-bottom: 0.5px solid var(--border); }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table tr:nth-child(even) td { background: var(--off-white); }
+    .compare-table td:first-child { font-weight: 500; color: var(--text-main); }
+    .check { color: var(--teal); }
+
+    .cta-band { background: var(--navy); padding: 72px 24px; text-align: center; }
+    .cta-band h2 { font-family: 'Syne', sans-serif; font-size: clamp(24px, 3vw, 34px); font-weight: 700; color: var(--white); letter-spacing: -0.02em; margin-bottom: 14px; }
+    .cta-band p { font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 28px; }
+
+    .divider { border: none; border-top: 0.5px solid var(--border); margin: 40px 0 0; }
+
+    @media (max-width: 768px) {
+      .brand-intro-grid { grid-template-columns: 1fr; gap: 24px; }
+      .compare-table { font-size: 12px; }
+      .compare-table th, .compare-table td { padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">epro<span>cent</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="nav-cta">Get a quote</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>›</span>
+        <a href="products.html">Products</a><span>›</span>
+        <span>UV LED curing systems</span>
+      </div>
+      <h1 class="page-title">Phoseon UV LED &amp;<br><em>EIT</em> radiometers</h1>
+      <p class="page-sub">Authorised dealer for Phoseon UV LED curing systems and EIT UV radiometers — serving Malaysia, Singapore, Thailand and China.</p>
+    </div>
+  </div>
+
+  <!-- BRAND INTRO -->
+  <section class="brand-intro">
+    <div class="container">
+      <div class="brand-intro-grid">
+
+        <div class="brand-block reveal">
+          <div class="brand-tag">UV curing</div>
+          <div class="brand-name">Phoseon Technology</div>
+          <p class="brand-desc">Phoseon Technology pioneered the use of LEDs for curing in both commercial and industrial applications, offering equipment manufacturers high-performance curing technology that provides maximum UV energy, superior performance and high reliability for demanding applications.</p>
+          <p class="brand-desc">Phoseon products primarily utilise 395nm wavelength, but can also be built with other wavelength diodes. Available in air-cooled and water-cooled configurations.</p>
+          <div>
+            <p style="font-size:12px; font-weight:500; color:var(--text-muted); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.06em;">Available wavelengths</p>
+            <div class="wavelength-row">
+              <span class="wl-chip">365nm</span>
+              <span class="wl-chip">385nm</span>
+              <span class="wl-chip">395nm</span>
+              <span class="wl-chip">405nm</span>
+              <span class="wl-chip">410nm</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="brand-block reveal">
+          <div class="brand-tag">UV measurement</div>
+          <div class="brand-name">EIT Instruments</div>
+          <p class="brand-desc">EIT is the industry standard for UV measurement instruments, supplying radiometers and profilers used globally for process validation, compliance documentation and quality control in UV curing applications.</p>
+          <p class="brand-desc">EIT instruments measure peak irradiance (W/cm²) and energy density (J/cm²) across UV bandwidths — essential for establishing correct UV levels and maintaining consistent cure quality.</p>
+          <div class="wavelength-row" style="margin-top:14px;">
+            <span class="wl-chip">UVA</span>
+            <span class="wl-chip">UVB</span>
+            <span class="wl-chip">UVC</span>
+            <span class="wl-chip">UVV</span>
+            <span class="wl-chip">395 LED</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB NAV -->
+  <div class="tab-nav">
+    <div class="tab-inner">
+      <button class="tab-btn active" onclick="scrollTo('air-cooled')">Air-cooled (Phoseon)</button>
+      <button class="tab-btn" onclick="scrollTo('water-cooled')">Water-cooled (Phoseon)</button>
+      <button class="tab-btn" onclick="scrollTo('eit-radiometers')">EIT radiometers</button>
+      <button class="tab-btn" onclick="scrollTo('eit-profilers')">EIT profilers</button>
+    </div>
+  </div>
+
+  <!-- AIR COOLED PRODUCTS -->
+  <section class="product-section" id="air-cooled">
+    <div class="container">
+      <span class="section-chip">Phoseon · Air-cooled</span>
+      <h2>Air-cooled UV LED systems</h2>
+      <p class="app-label">Compact, self-contained UV LED systems that require no external water cooling — ideal for easy integration and lower infrastructure cost.</p>
+      <div class="item-grid">
+
+        <div class="item-card reveal">
+          <div class="item-brand">Phoseon Technology</div>
+          <div class="item-name">FireEdge</div>
+          <p class="item-desc">Air-cooled UV LED system designed for digital inkjet "pinning" between colours. Available in multiple widths. CE, RoHS and REACH compliant.</p>
+          <div class="item-tags"><span class="item-tag">Air-cooled</span><span class="item-tag">Digital inkjet</span><span class="item-tag">Pinning</span><span class="item-tag">395nm</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">Phoseon Technology</div>
+          <div class="item-name">FireFly</div>
+          <p class="item-desc">Compact UV LED system for small area and spot curing applications. Also available in 365nm. Suitable for adhesive bonding, coating and encapsulant cure.</p>
+          <div class="item-tags"><span class="item-tag">Air-cooled</span><span class="item-tag">Spot curing</span><span class="item-tag">Small area</span><span class="item-tag">365nm / 395nm</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">Phoseon Technology</div>
+          <div class="item-name">FireJet</div>
+          <p class="item-desc">UV LED system for wide format and large single pass printing. Scalable up to 2 metres in width. High irradiance output for fast cure speeds.</p>
+          <div class="item-tags"><span class="item-tag">Air-cooled</span><span class="item-tag">Wide format</span><span class="item-tag">Single pass</span><span class="item-tag">Scalable to 2m</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WATER COOLED PRODUCTS -->
+  <section class="product-section" id="water-cooled">
+    <div class="container">
+      <span class="section-chip">Phoseon · Water-cooled</span>
+      <h2>Water-cooled UV LED systems</h2>
+      <p class="app-label">High-power water-cooled UV LED systems for demanding, high-throughput production applications requiring maximum sustained irradiance.</p>
+      <div class="item-grid">
+
+        <div class="item-card reveal">
+          <div class="item-brand">Phoseon Technology</div>
+          <div class="item-name">FireLine</div>
+          <p class="item-desc">Water-cooled UV LED for wide and narrow web printing. Scalable up to 2 metres. Also available in 365nm for specialist applications.</p>
+          <div class="item-tags"><span class="item-tag">Water-cooled</span><span class="item-tag">Web printing</span><span class="item-tag">365nm / 395nm</span><span class="item-tag">Scalable to 2m</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">Phoseon Technology</div>
+          <div class="item-name">FirePower</div>
+          <p class="item-desc">High-power water-cooled UV LED for wide web, narrow web, flexographic printing and wood coating applications. Scalable up to 2 metres.</p>
+          <div class="item-tags"><span class="item-tag">Water-cooled</span><span class="item-tag">Flexographic</span><span class="item-tag">Wood coating</span><span class="item-tag">Scalable to 2m</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">Phoseon Technology</div>
+          <div class="item-name">FireFlex</div>
+          <p class="item-desc">Water-cooled UV LED system for small format single pass digital printing. Scalable up to 2 metres for wider web configurations.</p>
+          <div class="item-tags"><span class="item-tag">Water-cooled</span><span class="item-tag">Digital printing</span><span class="item-tag">Small format</span><span class="item-tag">Scalable to 2m</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">Phoseon Technology</div>
+          <div class="item-name">StarFire Max</div>
+          <p class="item-desc">Water-cooled UV LED for lower power wide and narrow web printing applications. Also available in 365nm wavelength.</p>
+          <div class="item-tags"><span class="item-tag">Water-cooled</span><span class="item-tag">Web printing</span><span class="item-tag">365nm / 395nm</span><span class="item-tag">Lower power</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EIT RADIOMETERS -->
+  <section class="product-section" id="eit-radiometers">
+    <div class="container">
+      <span class="section-chip">EIT Instruments · Radiometers</span>
+      <h2>UV radiometers &amp; monitors</h2>
+      <p class="app-label"><strong>Measure UV peak irradiance (W/cm²) and energy density (J/cm²)</strong> — essential for establishing correct cure conditions and maintaining process consistency.</p>
+      <div class="item-grid">
+
+        <div class="item-card reveal">
+          <div class="item-brand">EIT Instruments</div>
+          <div class="item-name">UV Power Puck® II</div>
+          <p class="item-desc">Small, portable, self-contained 4-bandwidth radiometer measuring UV peak irradiance and energy density simultaneously across UVA, UVB, UVC and UVV. Available in low, mid and high range versions, and also in a 395 LED monitoring band.</p>
+          <div class="item-tags"><span class="item-tag">4-bandwidth</span><span class="item-tag">Portable</span><span class="item-tag">W/cm²</span><span class="item-tag">J/cm²</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">EIT Instruments</div>
+          <div class="item-name">UviCure® Plus II</div>
+          <p class="item-desc">Single-bandwidth portable radiometer measuring UV peak irradiance and energy density. Compact and easy to use for routine production monitoring and quality checks.</p>
+          <div class="item-tags"><span class="item-tag">Single-bandwidth</span><span class="item-tag">Portable</span><span class="item-tag">Production monitoring</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">EIT Instruments</div>
+          <div class="item-name">MicroCure®</div>
+          <p class="item-desc">Miniature radiometer with extremely small profile — ideal for tight spaces and small container curing (cans, tubes, bottles). Gathers irradiance and energy density values displayed on a stand-alone DataReader. Disposable after 200 readings or approximately one year.</p>
+          <div class="item-tags"><span class="item-tag">Miniature</span><span class="item-tag">Small containers</span><span class="item-tag">Tight spaces</span><span class="item-tag">Disposable</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">EIT Instruments</div>
+          <div class="item-name">PALM Probe®</div>
+          <p class="item-desc">Probe-type, wide dynamic range instrument for measuring peak irradiance and energy density where measurement space is limited or readings are difficult to obtain with standard radiometers. Use with the PALM Probe Locator Kit for repeatable positioning.</p>
+          <div class="item-tags"><span class="item-tag">Probe type</span><span class="item-tag">Limited space</span><span class="item-tag">Wide dynamic range</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">EIT Instruments</div>
+          <div class="item-name">SpotCure®</div>
+          <p class="item-desc">Hand-held UV radiometer for measuring the output of spot-curing systems — used to determine light guide degradation over time. Accommodates light guides of various sizes and displays peak irradiance in W/cm².</p>
+          <div class="item-tags"><span class="item-tag">Spot curing</span><span class="item-tag">Hand-held</span><span class="item-tag">Light guide check</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">EIT Instruments</div>
+          <div class="item-name">UV Power Puck® FLASH</div>
+          <p class="item-desc">Portable 4-bandwidth radiometer specifically designed to measure the energy density of pulsed UV systems that pulse at 100–120 pulses per second.</p>
+          <div class="item-tags"><span class="item-tag">Pulsed systems</span><span class="item-tag">4-bandwidth</span><span class="item-tag">100–120 pps</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EIT PROFILERS -->
+  <section class="product-section" id="eit-profilers">
+    <div class="container">
+      <span class="section-chip">EIT Instruments · Profilers</span>
+      <h2>UV profilers &amp; multi-point systems</h2>
+      <p class="app-label">Profiling systems travel through UV equipment collecting time-resolved irradiance and energy data — giving you a complete picture of what happens at every point in the cure zone.</p>
+      <div class="item-grid">
+
+        <div class="item-card reveal">
+          <div class="item-brand">EIT Instruments</div>
+          <div class="item-name">Power Puck® II Profiler</div>
+          <p class="item-desc">Functions as a standard Power Puck II while adding the ability to transfer collected data and irradiance profiles to a computer via USB. Data is analysed with EIT's PowerView Software® II — allowing comparison of files, lamp focus and lamp type across up to four UV bands.</p>
+          <div class="item-tags"><span class="item-tag">USB data transfer</span><span class="item-tag">PowerView Software</span><span class="item-tag">4-band analysis</span><span class="item-tag">Report export</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">EIT Instruments</div>
+          <div class="item-name">UV PowerMAP®</div>
+          <p class="item-desc">Profiling and temperature measurement system that travels through a UV system collecting peak irradiance, energy density and temperature data simultaneously across 4 UV bandwidths. Data is viewed with PowerView® software in graphic or tabular format and can be archived.</p>
+          <div class="item-tags"><span class="item-tag">4-bandwidth profiling</span><span class="item-tag">Temperature</span><span class="item-tag">Through-system</span><span class="item-tag">Archivable</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">EIT Instruments</div>
+          <div class="item-name">UV MAP Plus®</div>
+          <p class="item-desc">Single-bandwidth version of the PowerMAP profiling system. Travels through the UV system collecting irradiance and energy density data on one standard UV bandwidth.</p>
+          <div class="item-tags"><span class="item-tag">Single-bandwidth</span><span class="item-tag">Profiling</span><span class="item-tag">Through-system</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">EIT Instruments</div>
+          <div class="item-name">3DCure®</div>
+          <p class="item-desc">Multi-point system for measuring irradiance and energy density on large or three-dimensional objects. Up to 32 sensors in any combination of UV bandwidths can be daisy-chained and placed on every exposure surface — feeding data back from up to 32 measurement points via Cure_3D® software.</p>
+          <div class="item-tags"><span class="item-tag">Up to 32 sensors</span><span class="item-tag">3D objects</span><span class="item-tag">Multi-point</span><span class="item-tag">Cure_3D software</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARE -->
+  <section class="compare-section">
+    <div class="container">
+      <p class="section-label">UV LED vs mercury lamp</p>
+      <h2 class="section-title">Why switch to UV LED?</h2>
+      <p class="section-sub">A direct comparison across the factors that matter most in production environments.</p>
+      <table class="compare-table reveal">
+        <thead>
+          <tr><th>Feature</th><th>UV LED (Phoseon)</th><th>Traditional Mercury Lamp</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Heat output</td><td>Very low — minimal substrate heating</td><td>High — requires active cooling</td></tr>
+          <tr><td>Instant on/off</td><td><span class="check">✓</span> No warm-up needed</td><td>✗ Requires warm-up period</td></tr>
+          <tr><td>Service life</td><td>20,000+ hours typical</td><td>1,000–2,000 hours</td></tr>
+          <tr><td>Energy efficiency</td><td>High — targeted wavelength output</td><td>Low — broad spectrum waste</td></tr>
+          <tr><td>Mercury / ozone</td><td><span class="check">✓</span> Mercury-free, no ozone</td><td>✗ Contains mercury, produces ozone</td></tr>
+          <tr><td>Compliance</td><td>CE, RoHS, REACH compliant</td><td>Hazardous materials handling required</td></tr>
+          <tr><td>Intensity control</td><td>Precise, programmable</td><td>Limited adjustment</td></tr>
+          <tr><td>Maintenance</td><td>Minimal — no bulb replacements</td><td>Regular bulb and reflector replacement</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2>Need a UV LED curing or measurement solution?</h2>
+    <p>Tell us about your process and we will recommend the right Phoseon system and EIT instrument.</p>
+    <a href="contact.html" class="btn-primary">Talk to our team →</a>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">epro<span>cent</span></div>
+      <ul class="footer-links">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-inner">
+      <p class="footer-copy">© 2026 Eprocent Technology Sdn Bhd. All rights reserved. Designed &amp; developed by Aminat Olaide.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    function scrollTo(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>

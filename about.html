@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About Eprocent Technology Sdn Bhd — over 20 years supplying engineering solutions to Malaysia's manufacturing sector from our base in Penang." />
+  <title>About Us | Eprocent Technology Sdn Bhd</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--navy);
+      padding: 72px 24px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59,158,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,158,255,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      top: -160px; right: -80px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(59,158,255,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero-inner { position: relative; z-index: 1; }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 20px;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color var(--transition); }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: rgba(255,255,255,0.2); }
+    .page-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(32px, 4vw, 48px);
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .page-title em { font-style: normal; color: var(--accent); }
+    .page-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.5);
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    /* ── INTRO SPLIT ── */
+    .intro { padding: 80px 24px; background: var(--white); }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .intro-text h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .intro-text h2 em { font-style: normal; color: var(--accent); }
+    .intro-text p { font-size: 15px; color: var(--text-sec); line-height: 1.8; margin-bottom: 16px; }
+
+    .intro-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .intro-stat {
+      background: var(--off-white);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      text-align: center;
+    }
+    .intro-stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .intro-stat-label { font-size: 13px; color: var(--text-sec); line-height: 1.4; }
+
+    /* ── TIMELINE ── */
+    .timeline-section { padding: 80px 24px; background: var(--off-white); }
+    .timeline { position: relative; max-width: 720px; margin: 0 auto; padding-top: 16px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+    .timeline-item {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .timeline-dot {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      z-index: 1;
+    }
+    .timeline-content {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      flex: 1;
+    }
+    .timeline-year {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .timeline-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+    .timeline-body { font-size: 14px; color: var(--text-sec); line-height: 1.6; }
+
+    /* ── VALUES ── */
+    .values-section { padding: 80px 24px; background: var(--white); }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .value-card {
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      background: var(--white);
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .value-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .value-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+    .value-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+    .value-body { font-size: 14px; color: var(--text-sec); line-height: 1.7; }
+
+    /* ── MARKETS ── */
+    .markets-section { padding: 80px 24px; background: var(--navy); }
+    .markets-section .section-title { color: var(--white); }
+    .markets-section .section-sub   { color: rgba(255,255,255,0.5); }
+    .markets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .market-card {
+      background: rgba(255,255,255,0.04);
+      border: 0.5px solid var(--border-lt);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      text-align: center;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .market-card:hover { background: rgba(59,158,255,0.08); border-color: rgba(59,158,255,0.3); }
+    .market-flag { font-size: 36px; margin-bottom: 12px; }
+    .market-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .market-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+
+    /* ── PARTNERS ── */
+    .partners-section { padding: 64px 24px; background: var(--off-white); }
+    .partners-section .section-title { text-align: center; }
+    .partners-section .section-sub { text-align: center; margin: 0 auto 40px; }
+    .brand-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .brand-card {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      transition: border-color var(--transition);
+    }
+    .brand-card:hover { border-color: var(--accent); }
+    .brand-card-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .brand-card-desc { font-size: 12px; color: var(--text-muted); }
+
+    /* ── CTA ── */
+    .cta-band {
+      background: var(--navy-deep);
+      padding: 72px 24px;
+      text-align: center;
+      border-top: 0.5px solid var(--border-lt);
+    }
+    .cta-band h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    .cta-band p { font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 28px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+      .timeline::before { left: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">epro<span>cent</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Get a quote</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span>About us</span>
+      </div>
+      <h1 class="page-title">Built on <em>trust</em>,<br>driven by engineering</h1>
+      <p class="page-sub">Since 2002, Eprocent Technology has been supplying precision engineering solutions to Malaysia's most demanding manufacturers.</p>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="container">
+      <div class="intro-grid">
+        <div class="intro-text reveal">
+          <h2>More than two decades of <em>engineering expertise</em></h2>
+          <p>Eprocent Technology Sdn Bhd was established in Penang, Malaysia — the heart of Southeast Asia's electronics manufacturing corridor. From day one, our mission has been straightforward: provide manufacturers with the right tools, backed by people who actually understand the processes.</p>
+          <p>We don't just sell equipment. We understand how dispensing, curing, inspection and soldering systems are used in real production environments, and we stand behind every product we supply with genuine technical support.</p>
+          <p>Over two decades, we've built long-term relationships with manufacturers across Malaysia, Singapore, Thailand and China — supplying equipment from world-class principals including Phoseon, Vermes and EIT Instruments.</p>
+        </div>
+        <div class="intro-stats reveal">
+          <div class="intro-stat">
+            <div class="intro-stat-num">2002</div>
+            <div class="intro-stat-label">Year founded in Penang</div>
+          </div>
+          <div class="intro-stat">
+            <div class="intro-stat-num">20+</div>
+            <div class="intro-stat-label">Years serving manufacturers</div>
+          </div>
+          <div class="intro-stat">
+            <div class="intro-stat-num">4</div>
+            <div class="intro-stat-label">Markets across Asia</div>
+          </div>
+          <div class="intro-stat">
+            <div class="intro-stat-num">10+</div>
+            <div class="intro-stat-label">Product lines supplied</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section">
+    <div class="container">
+      <p class="section-label">Our journey</p>
+      <h2 class="section-title">How we grew</h2>
+      <p class="section-sub">Two decades of building relationships, expanding our range, and deepening our technical expertise.</p>
+
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot">2002</div>
+          <div class="timeline-content">
+            <div class="timeline-year">Founded</div>
+            <div class="timeline-title">Eprocent Technology established in Penang</div>
+            <p class="timeline-body">Started as a specialist supplier of dispensing equipment and process materials for Penang's growing electronics manufacturing sector.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot">2006</div>
+          <div class="timeline-content">
+            <div class="timeline-year">Expansion</div>
+            <div class="timeline-title">UV curing systems added to portfolio</div>
+            <p class="timeline-body">Partnered with Phoseon Technology and EIT Instruments to bring UV LED curing and measurement solutions to Malaysian manufacturers.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot">2011</div>
+          <div class="timeline-content">
+            <div class="timeline-year">Regional growth</div>
+            <div class="timeline-title">Expanded into Singapore and Thailand</div>
+            <p class="timeline-body">Growing demand from regional manufacturers led us to extend our sales and support coverage across Southeast Asia.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot">2016</div>
+          <div class="timeline-content">
+            <div class="timeline-year">Portfolio</div>
+            <div class="timeline-title">AOI and robotic systems introduced</div>
+            <p class="timeline-body">Added automated optical inspection and robotic automation to meet the growing demand for quality control and process automation.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot">Now</div>
+          <div class="timeline-content">
+            <div class="timeline-year">Today</div>
+            <div class="timeline-title">Full-range engineering solutions provider</div>
+            <p class="timeline-body">Serving manufacturers across MY, SG, TH and CN with 10+ product lines and a team of engineers who understand how every product is used in the field.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values-section">
+    <div class="container">
+      <p class="section-label">What we stand for</p>
+      <h2 class="section-title">Our values</h2>
+      <p class="section-sub">The principles that guide how we work with every customer, every day.</p>
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <div class="value-icon">🎯</div>
+          <div class="value-title">Technical integrity</div>
+          <p class="value-body">We only recommend products we believe are right for your process. If something isn't the best fit, we'll tell you — even if it means a smaller sale.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-icon">🤝</div>
+          <div class="value-title">Long-term partnership</div>
+          <p class="value-body">We think in years, not transactions. Our best customers have worked with us for over a decade because we show up when it matters.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-icon">⚡</div>
+          <div class="value-title">Responsiveness</div>
+          <p class="value-body">Manufacturing doesn't stop for slow suppliers. When you need answers or support, we respond fast — because your uptime is our priority.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-icon">🔬</div>
+          <div class="value-title">Deep expertise</div>
+          <p class="value-body">Our team understands the applications, not just the spec sheets. We've seen these products used across dozens of production environments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKETS -->
+  <section class="markets-section">
+    <div class="container">
+      <p class="section-label">Where we operate</p>
+      <h2 class="section-title">Markets we serve</h2>
+      <p class="section-sub">Regional presence with local understanding — we know the manufacturing landscape in every market we serve.</p>
+      <div class="markets-grid">
+        <div class="market-card reveal">
+          <div class="market-flag">🇲🇾</div>
+          <div class="market-name">Malaysia</div>
+          <p class="market-desc">Our home base — Penang, KL and Johor manufacturing corridors</p>
+        </div>
+        <div class="market-card reveal">
+          <div class="market-flag">🇸🇬</div>
+          <div class="market-name">Singapore</div>
+          <p class="market-desc">Precision manufacturing and semiconductor equipment supply</p>
+        </div>
+        <div class="market-card reveal">
+          <div class="market-flag">🇹🇭</div>
+          <div class="market-name">Thailand</div>
+          <p class="market-desc">Automotive and electronics manufacturing sector</p>
+        </div>
+        <div class="market-card reveal">
+          <div class="market-flag">🇨🇳</div>
+          <div class="market-name">China</div>
+          <p class="market-desc">Supply chain and manufacturing partnerships</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND PARTNERS -->
+  <section class="partners-section">
+    <div class="container">
+      <p class="section-label" style="text-align:center;">Our principals</p>
+      <h2 class="section-title">Brands we represent</h2>
+      <p class="section-sub">We partner with world-class manufacturers and represent their products with full technical support in Southeast Asia.</p>
+      <div class="brand-grid">
+        <div class="brand-card reveal">
+          <div class="brand-card-name">Phoseon</div>
+          <p class="brand-card-desc">UV LED curing systems — USA</p>
+        </div>
+        <div class="brand-card reveal">
+          <div class="brand-card-name">Vermes</div>
+          <p class="brand-card-desc">Jet dispensing systems — Germany</p>
+        </div>
+        <div class="brand-card reveal">
+          <div class="brand-card-name">EIT</div>
+          <p class="brand-card-desc">UV measurement instruments — USA</p>
+        </div>
+        <div class="brand-card reveal">
+          <div class="brand-card-name">San Ei Tech</div>
+          <p class="brand-card-desc">Dispensing systems — Japan</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2>Ready to work together?</h2>
+    <p>Tell us about your process and we'll recommend the right solution.</p>
+    <a href="index.html#contact" class="btn-primary">Get in touch →</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">epro<span>cent</span></div>
+      <ul class="footer-links">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-inner">
+      <p class="footer-copy">© 2026 Eprocent Technology Sdn Bhd. All rights reserved. Designed &amp; developed by Aminat Olaide.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

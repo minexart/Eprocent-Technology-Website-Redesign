@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Eprocent Technology product range — dispensing systems, UV curing, AOI machines, soldering stations, robotic systems and materials for Malaysia's manufacturing sector." />
+  <title>Products | Eprocent Technology Sdn Bhd</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── PAGE HERO (shared across inner pages) ── */
+    .page-hero {
+      background: var(--navy);
+      padding: 72px 24px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59,158,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,158,255,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      top: -160px; right: -80px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(59,158,255,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero-inner { position: relative; z-index: 1; }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 20px;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color var(--transition); }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: rgba(255,255,255,0.2); }
+    .page-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(32px, 4vw, 48px);
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .page-title em { font-style: normal; color: var(--accent); }
+    .page-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.5);
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      background: var(--off-white);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 24px;
+      position: sticky;
+      top: 64px;
+      z-index: 50;
+    }
+    .filter-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      padding: 12px 0;
+      scrollbar-width: none;
+    }
+    .filter-inner::-webkit-scrollbar { display: none; }
+    .filter-btn {
+      white-space: nowrap;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 7px 16px;
+      border-radius: 999px;
+      border: 0.5px solid var(--border);
+      background: var(--white);
+      color: var(--text-sec);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+    }
+
+    /* ── PRODUCT CATEGORY SECTION ── */
+    .category-section { padding: 64px 24px 48px; }
+    .category-section:nth-child(even) { background: var(--off-white); }
+
+    .category-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .category-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .category-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .category-desc { font-size: 15px; color: var(--text-sec); max-width: 480px; line-height: 1.6; }
+
+    .item-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .item-card {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .item-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(59,158,255,0.08);
+    }
+    .item-brand {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .item-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .item-desc { font-size: 13px; color: var(--text-sec); line-height: 1.6; }
+    .item-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .item-tag {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--off-white);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 0.5px solid var(--border);
+    }
+    .enquire-btn {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: var(--navy);
+      padding: 64px 24px;
+      text-align: center;
+    }
+    .cta-band h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    .cta-band p { font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 28px; }
+    .cta-band .btn-primary { font-size: 15px; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">epro<span>cent</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="#why">Why us</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Get a quote</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span>Products</span>
+      </div>
+      <h1 class="page-title">Our <em>product</em> range</h1>
+      <p class="page-sub">Engineering-grade equipment from world-class manufacturers, fully supported by our technical team across Malaysia, Singapore and Thailand.</p>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="filter-inner">
+      <button class="filter-btn active" data-filter="all">All products</button>
+      <button class="filter-btn" data-filter="dispensing">Dispensing</button>
+      <button class="filter-btn" data-filter="uv">UV curing</button>
+      <button class="filter-btn" data-filter="aoi">AOI</button>
+      <button class="filter-btn" data-filter="soldering">Soldering</button>
+      <button class="filter-btn" data-filter="robotic">Robotic</button>
+      <button class="filter-btn" data-filter="materials">Materials</button>
+    </div>
+  </div>
+
+  <!-- DISPENSING -->
+  <section class="category-section reveal" id="dispensing" data-category="dispensing">
+    <div class="container">
+      <div class="category-header">
+        <div>
+          <span class="category-tag">Dispensing systems</span>
+          <h2 class="category-title">Precision fluid dispensing</h2>
+          <p class="category-desc">From fully automatic jet dispensers to semi-automatic benchtop units — accurate, repeatable fluid application for electronics and industrial processes.</p>
+        </div>
+      </div>
+      <div class="item-grid">
+        <div class="item-card reveal">
+          <div class="item-brand">Vermes</div>
+          <div class="item-name">MDS 3280 Jet Dispenser</div>
+          <p class="item-desc">High-speed piezo jet dispenser for non-contact dispensing of low to medium viscosity fluids. Ideal for dots and lines.</p>
+          <div class="item-tags"><span class="item-tag">Non-contact</span><span class="item-tag">High speed</span><span class="item-tag">Piezo</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-brand">San Ei Tech</div>
+          <div class="item-name">Auto Dispensing System</div>
+          <p class="item-desc">Fully automatic dispensing with programmable XYZ motion for consistent adhesive, epoxy and solder paste application.</p>
+          <div class="item-tags"><span class="item-tag">Automatic</span><span class="item-tag">XYZ motion</span><span class="item-tag">Programmable</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-brand">San Ei Tech</div>
+          <div class="item-name">Semi-Auto Benchtop Dispenser</div>
+          <p class="item-desc">Compact benchtop unit for manual and semi-automatic dispensing. Suitable for prototyping, rework and low-volume production.</p>
+          <div class="item-tags"><span class="item-tag">Benchtop</span><span class="item-tag">Semi-auto</span><span class="item-tag">Compact</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-brand">Vermes</div>
+          <div class="item-name">MDS 3200 Series</div>
+          <p class="item-desc">Modular jetting system configurable for a wide range of fluid viscosities. Suitable for high-mix production environments.</p>
+          <div class="item-tags"><span class="item-tag">Modular</span><span class="item-tag">High-mix</span><span class="item-tag">Multi-viscosity</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UV CURING -->
+  <section class="category-section reveal" id="uv" data-category="uv">
+    <div class="container">
+      <div class="category-header">
+        <div>
+          <span class="category-tag">UV curing systems</span>
+          <h2 class="category-title">UV LED curing & measurement</h2>
+          <p class="category-desc">High-performance UV LED curing systems paired with precision UV measurement instruments for process validation and quality assurance.</p>
+        </div>
+      </div>
+      <div class="item-grid">
+        <div class="item-card reveal">
+          <div class="item-brand">Phoseon</div>
+          <div class="item-name">FireFlex UV LED System</div>
+          <p class="item-desc">Flexible UV LED curing module for integration into existing production lines. High irradiance, low heat output.</p>
+          <div class="item-tags"><span class="item-tag">UV LED</span><span class="item-tag">Low heat</span><span class="item-tag">Inline</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-brand">Phoseon</div>
+          <div class="item-name">RX Series Spot Curing</div>
+          <p class="item-desc">Spot UV LED curing for precision cure of adhesives, coatings and encapsulants in targeted areas.</p>
+          <div class="item-tags"><span class="item-tag">Spot cure</span><span class="item-tag">Precision</span><span class="item-tag">UV LED</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-brand">EIT</div>
+          <div class="item-name">UV PowerPuck II Radiometer</div>
+          <p class="item-desc">Industry-standard UV radiometer for measuring irradiance and energy density across UVA, UVB, UVC and UVV bands.</p>
+          <div class="item-tags"><span class="item-tag">Measurement</span><span class="item-tag">4-band</span><span class="item-tag">Validation</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-brand">EIT</div>
+          <div class="item-name">UV-A Profiler</div>
+          <p class="item-desc">Compact single-band UVA radiometer for process monitoring and compliance documentation in production environments.</p>
+          <div class="item-tags"><span class="item-tag">UVA</span><span class="item-tag">Compact</span><span class="item-tag">Monitoring</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AOI -->
+  <section class="category-section reveal" id="aoi" data-category="aoi">
+    <div class="container">
+      <div class="category-header">
+        <div>
+          <span class="category-tag">AOI machines</span>
+          <h2 class="category-title">Automated optical inspection</h2>
+          <p class="category-desc">High-speed, high-accuracy inspection systems for PCB assembly quality control — detect defects before they become costly failures.</p>
+        </div>
+      </div>
+      <div class="item-grid">
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">Inline AOI System</div>
+          <p class="item-desc">Fully inline automated optical inspection for SMT lines. Detects missing, misaligned, wrong and tombstoned components.</p>
+          <div class="item-tags"><span class="item-tag">Inline</span><span class="item-tag">SMT</span><span class="item-tag">High speed</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">Desktop AOI Machine</div>
+          <p class="item-desc">Compact desktop AOI for low to medium volume inspection. Ideal for contract manufacturers and R&D environments.</p>
+          <div class="item-tags"><span class="item-tag">Desktop</span><span class="item-tag">Offline</span><span class="item-tag">Flexible</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">3D Solder Paste Inspection</div>
+          <p class="item-desc">3D SPI system for post-print solder paste volume, height and area measurement before component placement.</p>
+          <div class="item-tags"><span class="item-tag">3D</span><span class="item-tag">SPI</span><span class="item-tag">Post-print</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLDERING -->
+  <section class="category-section reveal" id="soldering" data-category="soldering">
+    <div class="container">
+      <div class="category-header">
+        <div>
+          <span class="category-tag">Soldering stations</span>
+          <h2 class="category-title">Soldering & rework</h2>
+          <p class="category-desc">Professional soldering stations and hot air rework systems for electronics assembly, repair and BGA rework.</p>
+        </div>
+      </div>
+      <div class="item-grid">
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">Digital Soldering Station</div>
+          <p class="item-desc">Temperature-controlled digital soldering station with ESD-safe design. Fast heat recovery and stable tip temperature.</p>
+          <div class="item-tags"><span class="item-tag">ESD-safe</span><span class="item-tag">Digital</span><span class="item-tag">Temperature control</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">Hot Air Rework Station</div>
+          <p class="item-desc">Dual-channel hot air and iron rework station for SMD component removal and replacement. Adjustable airflow and temperature.</p>
+          <div class="item-tags"><span class="item-tag">Rework</span><span class="item-tag">SMD</span><span class="item-tag">Dual channel</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">BGA Rework System</div>
+          <p class="item-desc">Infrared BGA rework system for precise reflow of ball grid array packages on multilayer PCBs.</p>
+          <div class="item-tags"><span class="item-tag">BGA</span><span class="item-tag">Infrared</span><span class="item-tag">Multilayer</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROBOTIC -->
+  <section class="category-section reveal" id="robotic" data-category="robotic">
+    <div class="container">
+      <div class="category-header">
+        <div>
+          <span class="category-tag">Robotic systems</span>
+          <h2 class="category-title">Automation & robotics</h2>
+          <p class="category-desc">Tabletop and industrial robotic systems for dispensing, assembly and material handling automation in electronics manufacturing.</p>
+        </div>
+      </div>
+      <div class="item-grid">
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">3-Axis Tabletop Robot</div>
+          <p class="item-desc">Compact 3-axis XYZ tabletop robot for automated dispensing, screwdriving and light assembly tasks.</p>
+          <div class="item-tags"><span class="item-tag">3-axis</span><span class="item-tag">XYZ</span><span class="item-tag">Tabletop</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">4-Axis SCARA Robot</div>
+          <p class="item-desc">High-speed SCARA robot for pick-and-place, assembly and precision positioning in production line environments.</p>
+          <div class="item-tags"><span class="item-tag">SCARA</span><span class="item-tag">Pick & place</span><span class="item-tag">High speed</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">Robotic Dispensing Cell</div>
+          <p class="item-desc">Integrated robotic cell combining precision dispensing with automated part handling. Turnkey solution with vision guidance.</p>
+          <div class="item-tags"><span class="item-tag">Turnkey</span><span class="item-tag">Vision guided</span><span class="item-tag">Integrated</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATERIALS -->
+  <section class="category-section reveal" id="materials" data-category="materials">
+    <div class="container">
+      <div class="category-header">
+        <div>
+          <span class="category-tag">Materials & adhesives</span>
+          <h2 class="category-title">Process materials</h2>
+          <p class="category-desc">Adhesives, epoxy compounds, conformal coatings, and test probe pins for electronics manufacturing and quality testing.</p>
+        </div>
+      </div>
+      <div class="item-grid">
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">UV-Cure Adhesives</div>
+          <p class="item-desc">Single-component UV-curable adhesives for bonding, sealing and encapsulation in electronics assembly.</p>
+          <div class="item-tags"><span class="item-tag">UV-cure</span><span class="item-tag">Single-component</span><span class="item-tag">Bonding</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">Epoxy Compounds</div>
+          <p class="item-desc">Two-component epoxy systems for potting, encapsulation and structural bonding with excellent thermal and chemical resistance.</p>
+          <div class="item-tags"><span class="item-tag">Two-component</span><span class="item-tag">Potting</span><span class="item-tag">Thermal resistance</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">Test Probe Pins</div>
+          <p class="item-desc">Spring-loaded test probe pins and sockets for ICT fixtures, functional test jigs and in-circuit testing applications.</p>
+          <div class="item-tags"><span class="item-tag">ICT</span><span class="item-tag">Spring-loaded</span><span class="item-tag">Test fixtures</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">Conformal Coatings</div>
+          <p class="item-desc">Acrylic and silicone conformal coatings for PCB protection against moisture, dust and chemical contaminants.</p>
+          <div class="item-tags"><span class="item-tag">Conformal</span><span class="item-tag">PCB protection</span><span class="item-tag">Acrylic / Silicone</span></div>
+          <a href="index.html#contact" class="enquire-btn">Enquire →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <h2>Not sure what you need?</h2>
+    <p>Our engineers will recommend the right solution for your process.</p>
+    <a href="index.html#contact" class="btn-primary">Talk to our team →</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">epro<span>cent</span></div>
+      <ul class="footer-links">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-inner">
+      <p class="footer-copy">© 2026 Eprocent Technology Sdn Bhd. All rights reserved. Designed &amp; developed by Aminat Olaide.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const categorySections = document.querySelectorAll('.category-section');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        categorySections.forEach(section => {
+          if (filter === 'all' || section.dataset.category === filter) {
+            section.style.display = '';
+          } else {
+            section.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

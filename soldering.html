@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Soldering stations and rework equipment — auto soldering with lead-free technology, manual soldering stations 967ESD and 969ESD, ionizer fans, desoldering tools and infrared preheaters. ISO9000 certified. Eprocent Technology Malaysia." />
+  <title>Soldering Stations | Eprocent Technology</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero{background:var(--navy);padding:72px 24px 64px;position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(212,83,126,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(212,83,126,0.04) 1px,transparent 1px);background-size:40px 40px}
+    .page-hero::after{content:'';position:absolute;top:-160px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(212,83,126,0.07) 0%,transparent 70%);pointer-events:none}
+    .page-hero-inner{position:relative;z-index:1}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:20px}
+    .breadcrumb a{color:rgba(255,255,255,0.4);text-decoration:none;transition:color var(--transition)}
+    .breadcrumb a:hover{color:var(--accent)}
+    .breadcrumb span{color:rgba(255,255,255,0.2)}
+    .page-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(32px,4vw,48px);color:var(--white);letter-spacing:-0.03em;line-height:1.1;margin-bottom:16px}
+    .page-title em{font-style:normal;color:#D4537E}
+    .page-sub{font-size:17px;color:rgba(255,255,255,0.5);max-width:580px;line-height:1.7}
+
+    .tab-nav{background:var(--off-white);border-bottom:0.5px solid var(--border);padding:0 24px;position:sticky;top:64px;z-index:50}
+    .tab-inner{max-width:var(--max-w);margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:12px 0;scrollbar-width:none}
+    .tab-inner::-webkit-scrollbar{display:none}
+    .tab-btn{white-space:nowrap;font-size:13px;font-weight:500;padding:7px 16px;border-radius:999px;border:0.5px solid var(--border);background:var(--white);color:var(--text-sec);cursor:pointer;transition:all var(--transition)}
+    .tab-btn:hover,.tab-btn.active{background:#D4537E;color:var(--white);border-color:#D4537E}
+
+    .product-section{padding:64px 24px 48px}
+    .product-section:nth-child(even){background:var(--off-white)}
+    .section-chip{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:#D4537E;background:rgba(212,83,126,0.1);padding:4px 10px;border-radius:4px;margin-bottom:12px}
+    .product-section h2{font-family:'Syne',sans-serif;font-size:26px;font-weight:700;color:var(--text-main);letter-spacing:-0.02em;margin-bottom:10px}
+    .intro-p{font-size:15px;color:var(--text-sec);line-height:1.7;max-width:720px;margin-bottom:32px}
+
+    .item-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+    .item-card{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:28px;transition:border-color var(--transition),transform var(--transition),box-shadow var(--transition);display:flex;flex-direction:column}
+    .item-card:hover{border-color:#D4537E;transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,83,126,0.08)}
+    .item-brand{font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
+    .item-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--text-main);margin-bottom:8px}
+    .iso-badge{display:inline-block;font-size:11px;font-weight:500;color:var(--teal);background:rgba(29,158,117,0.1);border:0.5px solid rgba(29,158,117,0.2);padding:3px 10px;border-radius:4px;margin-bottom:14px}
+    .item-desc{font-size:13px;color:var(--text-sec);line-height:1.6;margin-bottom:16px;flex:1}
+    .feature-list{list-style:none;padding:0;border-top:0.5px solid var(--border);padding-top:14px;margin-bottom:16px}
+    .feature-list li{font-size:13px;color:var(--text-sec);padding:4px 0;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+    .feature-list li::before{content:'→';color:#D4537E;font-size:12px;flex-shrink:0;margin-top:1px}
+    .item-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+    .item-tag{font-size:11px;color:var(--text-muted);background:var(--off-white);padding:3px 8px;border-radius:4px;border:0.5px solid var(--border)}
+    .enquire-btn{display:inline-block;font-size:13px;color:var(--accent);font-weight:500;text-decoration:none;margin-top:auto}
+
+    .accessories-section{padding:72px 24px;background:var(--white)}
+    .acc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:36px}
+    .acc-card{background:var(--off-white);border:0.5px solid var(--border);border-radius:var(--radius-md);padding:18px;text-align:center;transition:border-color var(--transition)}
+    .acc-card:hover{border-color:#D4537E}
+    .acc-icon{font-size:24px;margin-bottom:8px}
+    .acc-name{font-size:13px;font-weight:500;color:var(--text-main)}
+
+    .cta-band{background:var(--navy);padding:72px 24px;text-align:center}
+    .cta-band h2{font-family:'Syne',sans-serif;font-size:clamp(24px,3vw,34px);font-weight:700;color:var(--white);letter-spacing:-0.02em;margin-bottom:14px}
+    .cta-band p{font-size:16px;color:rgba(255,255,255,0.5);margin-bottom:28px}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">epro<span>cent</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="nav-cta">Get a quote</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner container">
+      <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><a href="products.html">Products</a><span>›</span><span>Soldering stations</span></div>
+      <h1 class="page-title">Soldering &amp; <em>rework</em><br>stations</h1>
+      <p class="page-sub">Auto and manual soldering stations engineered for lead-free soldering requirements — ISO9000 certified, ESD-safe, proven reliable for production and rework operations.</p>
+    </div>
+  </div>
+
+  <div class="tab-nav">
+    <div class="tab-inner">
+      <button class="tab-btn active" onclick="jumpTo('auto-soldering', event)">Auto soldering</button>
+      <button class="tab-btn" onclick="jumpTo('manual-soldering', event)">Manual stations</button>
+      <button class="tab-btn" onclick="jumpTo('accessories', event)">Accessories</button>
+    </div>
+  </div>
+
+  <!-- AUTO SOLDERING -->
+  <section class="product-section" id="auto-soldering">
+    <div class="container">
+      <span class="section-chip">Auto soldering · Lead-free</span>
+      <h2>Automatic soldering systems</h2>
+      <p class="intro-p">Automatic soldering technology providing the best solution for lead-free soldering requirements — featuring direct heating iron units, N2 gas flow-through cartridges and zero solder ball feeding.</p>
+      <div class="item-grid">
+
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">Auto Soldering System</div>
+          <span class="iso-badge">ISO9000 certified</span>
+          <p class="item-desc">Automatic soldering system designed to meet the demands of lead-free soldering in production environments. Temperature recovery direct heating method for consistent joint quality.</p>
+          <ul class="feature-list">
+            <li>Temperature recovery direct heating TM iron unit — designed for lead-free</li>
+            <li>Zero Solder Ball Feeder (ZSB) — Geyan system</li>
+            <li>Second solder feeding position adjustable RSP and RSL iron units</li>
+            <li>N2 gas direct flow-through iron cartridge</li>
+            <li>Miniature N2 generator included</li>
+          </ul>
+          <div class="item-tags"><span class="item-tag">Lead-free</span><span class="item-tag">N2 gas</span><span class="item-tag">Zero solder ball</span><span class="item-tag">Auto</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MANUAL SOLDERING -->
+  <section class="product-section" id="manual-soldering">
+    <div class="container">
+      <span class="section-chip">Manual soldering · ESD-safe</span>
+      <h2>Manual soldering stations</h2>
+      <p class="intro-p">Proven reliable in soldering rework station operations. Comparatively stable against any outstanding brand in the market — cost effective to use and easy to operate. ISO9000 certified.</p>
+      <div class="item-grid">
+
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">967ESD</div>
+          <span class="iso-badge">ISO9000 certified · ESD-safe</span>
+          <p class="item-desc">ESD-safe soldering station for production and rework bench use. Reliable temperature control, stable performance and proven quality for electronics assembly environments requiring electrostatic discharge protection.</p>
+          <ul class="feature-list">
+            <li>ESD-safe design throughout</li>
+            <li>Stable temperature control</li>
+            <li>Suitable for production and rework operations</li>
+            <li>Cost effective with easy operation</li>
+            <li>ISO9000 certified quality</li>
+          </ul>
+          <div class="item-tags"><span class="item-tag">ESD-safe</span><span class="item-tag">Manual</span><span class="item-tag">ISO9000</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">Eprocent</div>
+          <div class="item-name">969 / 969ESD</div>
+          <span class="iso-badge">ISO9000 certified · ESD-safe</span>
+          <p class="item-desc">Advanced soldering station available in standard and ESD-safe versions. Higher specification unit offering reliable performance for demanding rework station operations in professional electronics environments.</p>
+          <ul class="feature-list">
+            <li>Available in standard (969) and ESD-safe (969ESD)</li>
+            <li>Reliable rework station performance</li>
+            <li>Stable against competing brands in market</li>
+            <li>Easy operation and cost-effective running cost</li>
+            <li>ISO9000 certified quality</li>
+          </ul>
+          <div class="item-tags"><span class="item-tag">ESD-safe option</span><span class="item-tag">Manual</span><span class="item-tag">ISO9000</span><span class="item-tag">Rework</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESSORIES -->
+  <section class="accessories-section" id="accessories">
+    <div class="container">
+      <p class="section-label">Complete soldering toolkit</p>
+      <h2 class="section-title">Accessories &amp; ancillary equipment</h2>
+      <p class="section-sub">A full range of accessories and ancillary equipment to complete your soldering and rework workstation setup.</p>
+      <div class="acc-grid">
+        <div class="acc-card reveal"><div class="acc-icon">💨</div><div class="acc-name">Ionizer fan</div></div>
+        <div class="acc-card reveal"><div class="acc-icon">🔩</div><div class="acc-name">Desoldering tools</div></div>
+        <div class="acc-card reveal"><div class="acc-icon">🌡️</div><div class="acc-name">Pre-heat / rework hotplate</div></div>
+        <div class="acc-card reveal"><div class="acc-icon">☀️</div><div class="acc-name">Infrared preheater</div></div>
+        <div class="acc-card reveal"><div class="acc-icon">🔫</div><div class="acc-name">Ionizing hot gun</div></div>
+        <div class="acc-card reveal"><div class="acc-icon">⚡</div><div class="acc-name">Ionizing bar</div></div>
+        <div class="acc-card reveal"><div class="acc-icon">📡</div><div class="acc-name">Static monitoring systems</div></div>
+        <div class="acc-card reveal"><div class="acc-icon">🧰</div><div class="acc-name">Spare tips &amp; consumables</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <h2>Need a soldering solution?</h2>
+    <p>Tell us about your application and production volume — we will recommend the right station and accessories.</p>
+    <a href="contact.html" class="btn-primary">Get a recommendation →</a>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">epro<span>cent</span></div>
+      <ul class="footer-links"><li><a href="products.html">Products</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul>
+    </div>
+    <div class="footer-inner"><p class="footer-copy">© 2026 Eprocent Technology Sdn Bhd. All rights reserved. Designed &amp; developed by Aminat Olaide.</p></div>
+  </footer>
+  <script src="main.js"></script>
+  <script>
+    function jumpTo(id,event){
+      document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>

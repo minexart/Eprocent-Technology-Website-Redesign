@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vermes MicroDispensing Systems and San Ei Tech dispensing equipment — authorised dealer in Malaysia, Singapore, Thailand and China. MDS 3010A, 3020A, 3200A, 3200F." />
+  <title>Dispensing Systems | Eprocent Technology</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero { background: var(--navy); padding: 72px 24px 64px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(59,158,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(59,158,255,0.04) 1px, transparent 1px); background-size: 40px 40px; }
+    .page-hero::after { content: ''; position: absolute; top: -160px; right: -80px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(59,158,255,0.07) 0%, transparent 70%); pointer-events: none; }
+    .page-hero-inner { position: relative; z-index: 1; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+    .breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color var(--transition); }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: rgba(255,255,255,0.2); }
+    .page-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); color: var(--white); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px; }
+    .page-title em { font-style: normal; color: var(--accent); }
+    .page-sub { font-size: 17px; color: rgba(255,255,255,0.5); max-width: 580px; line-height: 1.7; }
+
+    /* BRAND INTRO */
+    .brand-intro { padding: 72px 24px; background: var(--white); }
+    .brand-intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .brand-block { border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 32px; height: 100%; }
+    .brand-name { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: var(--text-main); letter-spacing: -0.02em; margin-bottom: 8px; }
+    .brand-tag { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); padding: 3px 10px; border-radius: 4px; margin-bottom: 14px; }
+    .brand-desc { font-size: 14px; color: var(--text-sec); line-height: 1.7; margin-bottom: 12px; }
+
+    /* TAB NAV */
+    .tab-nav { background: var(--off-white); border-bottom: 0.5px solid var(--border); padding: 0 24px; position: sticky; top: 64px; z-index: 50; }
+    .tab-inner { max-width: var(--max-w); margin: 0 auto; display: flex; gap: 4px; overflow-x: auto; padding: 12px 0; scrollbar-width: none; }
+    .tab-inner::-webkit-scrollbar { display: none; }
+    .tab-btn { white-space: nowrap; font-size: 13px; font-weight: 500; padding: 7px 16px; border-radius: 999px; border: 0.5px solid var(--border); background: var(--white); color: var(--text-sec); cursor: pointer; transition: all var(--transition); }
+    .tab-btn:hover, .tab-btn.active { background: var(--accent); color: var(--white); border-color: var(--accent); }
+
+    /* PRODUCT SECTIONS */
+    .product-section { padding: 64px 24px 48px; }
+    .product-section:nth-child(even) { background: var(--off-white); }
+    .section-chip { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); padding: 4px 10px; border-radius: 4px; margin-bottom: 12px; }
+    .product-section h2 { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em; margin-bottom: 10px; }
+    .product-section .intro-p { font-size: 15px; color: var(--text-sec); line-height: 1.7; max-width: 720px; margin-bottom: 32px; }
+
+    /* PRODUCT CARDS */
+    .item-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .item-card { background: var(--white); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 28px; transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition); display: flex; flex-direction: column; }
+    .item-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(59,158,255,0.08); }
+    .item-brand { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+    .item-name { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--text-main); margin-bottom: 6px; }
+    .item-viscosity { font-size: 12px; font-weight: 500; color: var(--accent); background: var(--accent-dim); padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 14px; }
+    .item-desc { font-size: 13px; color: var(--text-sec); line-height: 1.6; margin-bottom: 16px; flex: 1; }
+    .feature-list { list-style: none; padding: 0; border-top: 0.5px solid var(--border); padding-top: 14px; margin-bottom: 16px; }
+    .feature-list li { font-size: 13px; color: var(--text-sec); padding: 5px 0; display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+    .feature-list li::before { content: '→'; color: var(--accent); font-size: 12px; flex-shrink: 0; margin-top: 1px; }
+    .item-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .item-tag { font-size: 11px; color: var(--text-muted); background: var(--off-white); padding: 3px 8px; border-radius: 4px; border: 0.5px solid var(--border); }
+    .enquire-btn { display: inline-block; font-size: 13px; color: var(--accent); font-weight: 500; text-decoration: none; margin-top: auto; }
+
+    /* APPLICATIONS */
+    .app-section { padding: 64px 24px; background: var(--white); }
+    .app-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-top: 36px; }
+    .app-card { background: var(--off-white); border: 0.5px solid var(--border); border-radius: var(--radius-md); padding: 20px; text-align: center; transition: border-color var(--transition); }
+    .app-card:hover { border-color: var(--accent); }
+    .app-icon { font-size: 26px; margin-bottom: 10px; }
+    .app-name { font-size: 13px; font-weight: 500; color: var(--text-main); margin-bottom: 4px; }
+    .app-desc { font-size: 12px; color: var(--text-sec); line-height: 1.4; }
+
+    .cta-band { background: var(--navy); padding: 72px 24px; text-align: center; }
+    .cta-band h2 { font-family: 'Syne', sans-serif; font-size: clamp(24px, 3vw, 34px); font-weight: 700; color: var(--white); letter-spacing: -0.02em; margin-bottom: 14px; }
+    .cta-band p { font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 28px; }
+
+    @media (max-width: 768px) {
+      .brand-intro-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">epro<span>cent</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="nav-cta">Get a quote</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>›</span>
+        <a href="products.html">Products</a><span>›</span>
+        <span>Dispensing systems</span>
+      </div>
+      <h1 class="page-title">Vermes <em>MDS</em> &amp;<br>San Ei Tech dispensing</h1>
+      <p class="page-sub">Authorised dealer for Vermes MicroDispensing Systems and San Ei Tech — precision jetting and automated dispensing for every viscosity and application.</p>
+    </div>
+  </div>
+
+  <!-- BRAND INTRO -->
+  <section class="brand-intro">
+    <div class="container">
+      <div class="brand-intro-grid">
+        <div class="brand-block reveal">
+          <div class="brand-tag">Jet dispensing</div>
+          <div class="brand-name">Vermes Microdispensing</div>
+          <p class="brand-desc">Vermes is an independent producer of low-maintenance piezo MicroDispensing Systems offering maximum accuracy and dependability. The MDS product family uses high-power piezo stacks for extremely fast valve opening and closing — up to 1,000Hz at full stroke.</p>
+          <p class="brand-desc">Applications include micro gluing, micro marking, micro lubricating, micro spraying and fine dispensing of almost every customer-specific media. The modular design means users can switch between jetting and spray applications by changing only the nozzle and fluidbox — no new valve body required.</p>
+        </div>
+        <div class="brand-block reveal">
+          <div class="brand-tag">Auto dispensing</div>
+          <div class="brand-name">San Ei Tech</div>
+          <p class="brand-desc">San Ei Tech supplies fully automatic and semi-automatic dispensing systems for electronics manufacturing. Their auto dispensers offer programmable XYZ motion control for consistent adhesive, epoxy and solder paste application at production speed.</p>
+          <p class="brand-desc">From benchtop semi-auto units for prototyping and rework, to fully automated inline systems for volume production — San Ei Tech covers the full range of dispensing automation requirements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB NAV -->
+  <div class="tab-nav">
+    <div class="tab-inner">
+      <button class="tab-btn active" onclick="jumpTo('vermes', event)">Vermes MDS family</button>
+      <button class="tab-btn" onclick="jumpTo('san-ei', event)">San Ei Tech</button>
+      <button class="tab-btn" onclick="jumpTo('applications', event)">Applications</button>
+    </div>
+  </div>
+
+  <!-- VERMES MDS FAMILY -->
+  <section class="product-section" id="vermes">
+    <div class="container">
+      <span class="section-chip">Vermes · MDS 3000 family</span>
+      <h2>Vermes MicroDispensing Systems</h2>
+      <p class="intro-p">The MDS 3000 family covers the full viscosity range from thin aqueous solutions to the highest viscosity pastes and epoxies. All models share the same modular design — change only the nozzle and fluidbox to switch applications, protecting your investment across different processes.</p>
+      <div class="item-grid">
+
+        <div class="item-card reveal">
+          <div class="item-brand">Vermes Microdispensing</div>
+          <div class="item-name">MDS 3010A</div>
+          <span class="item-viscosity">Up to 300 mPas</span>
+          <p class="item-desc">Jet valve for dispensing aqueous solutions and low viscosity oils. Recommended for applications demanding the highest precision at low viscosities.</p>
+          <ul class="feature-list">
+            <li>Up to 450 Hz (max needle lift), 250 Hz nonstop</li>
+            <li>Freely adjustable parameter settings</li>
+            <li>High drop-to-drop repeatability up to 300 mPas</li>
+            <li>Dispensing into cavities, grooves and irregular surfaces</li>
+            <li>Modular design — swap parts for different fluids</li>
+          </ul>
+          <div class="item-tags"><span class="item-tag">Low viscosity</span><span class="item-tag">Aqueous</span><span class="item-tag">450 Hz</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">Vermes Microdispensing</div>
+          <div class="item-name">MDS 3020A</div>
+          <span class="item-viscosity">Up to 8,000 mPas</span>
+          <p class="item-desc">The ideal choice for medium viscosity fluids — adhesives, solder flux and similar materials. Same modular design as the 3010A with extended viscosity range.</p>
+          <ul class="feature-list">
+            <li>Up to 450 Hz (max needle lift), 250 Hz nonstop</li>
+            <li>High repeatability up to 8,000 mPas</li>
+            <li>Dispensing into cavities and irregular surfaces</li>
+            <li>Multiple nozzle options for varied dot sizes</li>
+            <li>Multiple component materials for media compatibility</li>
+          </ul>
+          <div class="item-tags"><span class="item-tag">Medium viscosity</span><span class="item-tag">Adhesives</span><span class="item-tag">450 Hz</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">Vermes Microdispensing</div>
+          <div class="item-name">MDS 3200A</div>
+          <span class="item-viscosity">Up to 2,000,000 mPas</span>
+          <p class="item-desc">Piezo valve for jetting the highest viscosity fluids — silicones, epoxies, underfills and thermal interface materials. Sustained nonstop operation at 600 Hz with up to 1,000 Hz peak.</p>
+          <ul class="feature-list">
+            <li>Up to 1,000 Hz peak, 600 Hz nonstop</li>
+            <li>Jetting pressure up to 1,000 bar</li>
+            <li>Compatible with low and medium viscous media also</li>
+            <li>Electronic control — parameter changes without delay</li>
+            <li>Low total cost of ownership (TCO)</li>
+          </ul>
+          <div class="item-tags"><span class="item-tag">High viscosity</span><span class="item-tag">Epoxy / silicone</span><span class="item-tag">600 Hz nonstop</span><span class="item-tag">1,000 bar</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">Vermes Microdispensing</div>
+          <div class="item-name">MDS 3200F</div>
+          <span class="item-viscosity">High viscosity · small drops</span>
+          <p class="item-desc">Extends the MDS 3200A with an additional adjusting screw that mechanically limits needle lift — enabling maximum system power with controlled, very small drop sizes and high repeatability. Fully compatible with all MDS 3200A component parts.</p>
+          <ul class="feature-list">
+            <li>Up to 2,000 Hz peak, 600 Hz nonstop</li>
+            <li>Very small dots with low droplet diameters</li>
+            <li>Software-enhanced parameter finding</li>
+            <li>Works in parallel multi-valve configurations</li>
+            <li>Compact build for limited space environments</li>
+          </ul>
+          <div class="item-tags"><span class="item-tag">Small drops</span><span class="item-tag">2,000 Hz peak</span><span class="item-tag">Parallel use</span><span class="item-tag">3200A compatible</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SAN EI TECH -->
+  <section class="product-section" id="san-ei">
+    <div class="container">
+      <span class="section-chip">San Ei Tech · Auto dispensing</span>
+      <h2>San Ei Tech dispensing systems</h2>
+      <p class="intro-p">Fully automatic and semi-automatic dispensing platforms for electronics assembly — from compact benchtop units through to fully programmable XYZ production systems.</p>
+      <div class="item-grid">
+
+        <div class="item-card reveal">
+          <div class="item-brand">San Ei Tech</div>
+          <div class="item-name">Fully Auto Dispenser</div>
+          <span class="item-viscosity">Production line</span>
+          <p class="item-desc">Fully automatic dispensing with programmable XYZ motion control for consistent, repeatable application of adhesives, epoxy, silicone and solder paste at production speed.</p>
+          <ul class="feature-list">
+            <li>Programmable XYZ motion — dots, lines, arcs</li>
+            <li>Consistent volume control across every shot</li>
+            <li>Suitable for adhesives, epoxy, solder paste</li>
+            <li>Integration with SMT conveyor systems</li>
+          </ul>
+          <div class="item-tags"><span class="item-tag">Fully automatic</span><span class="item-tag">XYZ motion</span><span class="item-tag">Programmable</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">San Ei Tech</div>
+          <div class="item-name">Semi-Auto Benchtop Dispenser</div>
+          <span class="item-viscosity">Benchtop / low volume</span>
+          <p class="item-desc">Compact semi-automatic benchtop dispensing unit for manual and assisted dispensing. Ideal for prototyping, rework operations and low-volume production runs where full automation is not required.</p>
+          <ul class="feature-list">
+            <li>Compact footprint — fits on standard bench</li>
+            <li>Adjustable time and pressure dispensing</li>
+            <li>Quick setup for different materials</li>
+            <li>Suitable for rework and prototype builds</li>
+          </ul>
+          <div class="item-tags"><span class="item-tag">Semi-auto</span><span class="item-tag">Benchtop</span><span class="item-tag">Rework</span><span class="item-tag">Low volume</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATIONS -->
+  <section class="app-section" id="applications">
+    <div class="container">
+      <p class="section-label">Where our dispensing systems are used</p>
+      <h2 class="section-title">Applications</h2>
+      <p class="section-sub">The Vermes MDS family covers micro gluing, marking, lubricating, spraying and fine dispensing across almost every industry.</p>
+      <div class="app-grid">
+        <div class="app-card reveal"><div class="app-icon">🔌</div><div class="app-name">PCB assembly</div><p class="app-desc">Adhesive, epoxy and underfill dispensing</p></div>
+        <div class="app-card reveal"><div class="app-icon">💡</div><div class="app-name">LED manufacturing</div><p class="app-desc">Phosphor and silicone encapsulant dispensing</p></div>
+        <div class="app-card reveal"><div class="app-icon">📱</div><div class="app-name">Consumer electronics</div><p class="app-desc">Sealing, bonding and gasket applications</p></div>
+        <div class="app-card reveal"><div class="app-icon">🚗</div><div class="app-name">Automotive electronics</div><p class="app-desc">Conformal coating and potting compounds</p></div>
+        <div class="app-card reveal"><div class="app-icon">🔬</div><div class="app-name">Medical devices</div><p class="app-desc">Micro-volume precision fluid dispensing</p></div>
+        <div class="app-card reveal"><div class="app-icon">🖨️</div><div class="app-name">Inkjet / printing</div><p class="app-desc">UV ink pinning and coating applications</p></div>
+        <div class="app-card reveal"><div class="app-icon">⚙️</div><div class="app-name">Industrial assembly</div><p class="app-desc">Thread locking, lubrication and sealing</p></div>
+        <div class="app-card reveal"><div class="app-icon">🧪</div><div class="app-name">R&amp;D / prototyping</div><p class="app-desc">Small-batch and experimental dispensing</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2>Need help choosing the right dispensing system?</h2>
+    <p>Tell us your fluid viscosity, volume, speed and application — our engineers will recommend the right MDS model.</p>
+    <a href="contact.html" class="btn-primary">Talk to our engineers →</a>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">epro<span>cent</span></div>
+      <ul class="footer-links">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-inner">
+      <p class="footer-copy">© 2026 Eprocent Technology Sdn Bhd. All rights reserved. Designed &amp; developed by Aminat Olaide.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    function jumpTo(id, event) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>

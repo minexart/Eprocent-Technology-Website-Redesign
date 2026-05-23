@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Automated Optical Inspection (AOI) machines and Dynamic Process Control solutions for SMT, SPI, microelectronics and packaging — Eprocent Technology Malaysia." />
+  <title>AOI Machines | Eprocent Technology</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero{background:var(--navy);padding:72px 24px 64px;position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,0.04) 1px,transparent 1px);background-size:40px 40px}
+    .page-hero::after{content:'';position:absolute;top:-160px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(29,158,117,0.07) 0%,transparent 70%);pointer-events:none}
+    .page-hero-inner{position:relative;z-index:1}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:20px}
+    .breadcrumb a{color:rgba(255,255,255,0.4);text-decoration:none;transition:color var(--transition)}
+    .breadcrumb a:hover{color:var(--accent)}
+    .breadcrumb span{color:rgba(255,255,255,0.2)}
+    .page-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(32px,4vw,48px);color:var(--white);letter-spacing:-0.03em;line-height:1.1;margin-bottom:16px}
+    .page-title em{font-style:normal;color:#1D9E75}
+    .page-sub{font-size:17px;color:rgba(255,255,255,0.5);max-width:580px;line-height:1.7}
+
+    .overview{padding:72px 24px;background:var(--white)}
+    .overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+    .overview-text h2{font-family:'Syne',sans-serif;font-size:clamp(22px,2.5vw,30px);font-weight:700;color:var(--text-main);letter-spacing:-0.02em;margin-bottom:16px;line-height:1.3}
+    .overview-text p{font-size:15px;color:var(--text-sec);line-height:1.8;margin-bottom:14px}
+    .brand-block{border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:28px;background:var(--off-white)}
+    .brand-tag{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:#1D9E75;background:rgba(29,158,117,0.1);padding:3px 10px;border-radius:4px;margin-bottom:12px}
+    .brand-name{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--text-main);margin-bottom:10px}
+    .brand-desc{font-size:14px;color:var(--text-sec);line-height:1.7;margin-bottom:10px}
+
+    .products-section{padding:72px 24px;background:var(--off-white)}
+    .item-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;margin-top:40px}
+    .item-card{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:28px;transition:border-color var(--transition),transform var(--transition),box-shadow var(--transition);display:flex;flex-direction:column}
+    .item-card:hover{border-color:#1D9E75;transform:translateY(-2px);box-shadow:0 8px 24px rgba(29,158,117,0.08)}
+    .item-brand{font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
+    .item-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--text-main);margin-bottom:8px}
+    .item-desc{font-size:13px;color:var(--text-sec);line-height:1.6;margin-bottom:16px;flex:1}
+    .feature-list{list-style:none;padding:0;border-top:0.5px solid var(--border);padding-top:14px;margin-bottom:16px}
+    .feature-list li{font-size:13px;color:var(--text-sec);padding:4px 0;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+    .feature-list li::before{content:'→';color:#1D9E75;font-size:12px;flex-shrink:0;margin-top:1px}
+    .item-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+    .item-tag{font-size:11px;color:var(--text-muted);background:var(--off-white);padding:3px 8px;border-radius:4px;border:0.5px solid var(--border)}
+    .enquire-btn{display:inline-block;font-size:13px;color:var(--accent);font-weight:500;text-decoration:none;margin-top:auto}
+
+    .defect-section{padding:72px 24px;background:var(--white)}
+    .defect-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:40px}
+    .defect-card{border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:22px;display:flex;align-items:flex-start;gap:12px}
+    .defect-dot{width:10px;height:10px;border-radius:50%;background:#1D9E75;flex-shrink:0;margin-top:4px}
+    .defect-name{font-size:14px;font-weight:500;color:var(--text-main);margin-bottom:4px}
+    .defect-desc{font-size:12px;color:var(--text-sec);line-height:1.5}
+
+    .dpc-section{padding:72px 24px;background:var(--off-white)}
+    .dpc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:40px}
+    .dpc-card{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:24px;text-align:center}
+    .dpc-icon{font-size:28px;margin-bottom:12px}
+    .dpc-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:600;color:var(--text-main);margin-bottom:8px}
+    .dpc-body{font-size:13px;color:var(--text-sec);line-height:1.6}
+
+    .cta-band{background:var(--navy);padding:72px 24px;text-align:center}
+    .cta-band h2{font-family:'Syne',sans-serif;font-size:clamp(24px,3vw,34px);font-weight:700;color:var(--white);letter-spacing:-0.02em;margin-bottom:14px}
+    .cta-band p{font-size:16px;color:rgba(255,255,255,0.5);margin-bottom:28px}
+
+    @media(max-width:768px){.overview-grid{grid-template-columns:1fr;gap:36px}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">epro<span>cent</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="nav-cta">Get a quote</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner container">
+      <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><a href="products.html">Products</a><span>›</span><span>AOI machines</span></div>
+      <h1 class="page-title">Automated <em>Optical</em><br>Inspection machines</h1>
+      <p class="page-sub">Measurement-based AOI solutions with Dynamic Process Control (DPC) for SMT, SPI, microelectronics and packaging — taking quality, asset utilisation and efficiency to the next level.</p>
+    </div>
+  </div>
+
+  <section class="overview">
+    <div class="container">
+      <div class="overview-grid">
+        <div class="overview-text reveal">
+          <h2>World-leading AOI with Dynamic Process Control</h2>
+          <p>Machine Vision Products is the world's leading supplier of measurement-based Automated Optical Inspection solutions for SMT, SPI, microelectronics and packaging companies. Their award-winning Dynamic Process Control (DPC) solutions provide leading process control capabilities that go beyond simple pass/fail inspection.</p>
+          <p>DPC enables real-time process feedback — using inspection data to actively control upstream processes and prevent defects before they occur, rather than simply detecting them after the fact. This closes the loop between inspection and production, delivering measurable gains in first-pass yield, asset utilisation and overall efficiency.</p>
+          <p>Eprocent Technology supplies and supports Machine Vision Products AOI systems in Malaysia, Singapore and Thailand.</p>
+        </div>
+        <div class="brand-block reveal">
+          <div class="brand-tag">AOI partner</div>
+          <div class="brand-name">Machine Vision Products</div>
+          <p class="brand-desc">World's leading supplier of measurement-based AOI solutions. Covering inline AOI, solder paste inspection (SPI) and advanced Dynamic Process Control for SMT production environments.</p>
+          <p class="brand-desc">MVP AOI systems are used by leading electronics manufacturers globally for their accuracy, speed and unique closed-loop process control capability.</p>
+          <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;">
+            <span style="font-size:11px;font-weight:500;color:#1D9E75;background:rgba(29,158,117,0.1);padding:4px 10px;border-radius:4px">SMT</span>
+            <span style="font-size:11px;font-weight:500;color:#1D9E75;background:rgba(29,158,117,0.1);padding:4px 10px;border-radius:4px">SPI</span>
+            <span style="font-size:11px;font-weight:500;color:#1D9E75;background:rgba(29,158,117,0.1);padding:4px 10px;border-radius:4px">Microelectronics</span>
+            <span style="font-size:11px;font-weight:500;color:#1D9E75;background:rgba(29,158,117,0.1);padding:4px 10px;border-radius:4px">Packaging</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div class="container">
+      <p class="section-label">AOI product range</p>
+      <h2 class="section-title">Available systems</h2>
+      <p class="section-sub">Inline and offline AOI with Dynamic Process Control — for every production volume and environment.</p>
+      <div class="item-grid">
+
+        <div class="item-card reveal">
+          <div class="item-brand">Machine Vision Products</div>
+          <div class="item-name">Inline AOI with DPC</div>
+          <p class="item-desc">Fully inline measurement-based AOI for SMT production lines. Award-winning Dynamic Process Control provides closed-loop feedback to upstream processes — preventing defects, not just detecting them.</p>
+          <ul class="feature-list">
+            <li>Dynamic Process Control (DPC) — closed loop feedback</li>
+            <li>Post-reflow component and solder joint inspection</li>
+            <li>Missing, wrong, shifted, tombstoned components</li>
+            <li>Solder bridge and insufficient solder detection</li>
+            <li>Real-time process data and SPC reporting</li>
+          </ul>
+          <div class="item-tags"><span class="item-tag">Inline</span><span class="item-tag">DPC</span><span class="item-tag">SMT</span><span class="item-tag">Closed-loop</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">Machine Vision Products</div>
+          <div class="item-name">Solder Paste Inspection (SPI)</div>
+          <p class="item-desc">Post-print solder paste inspection measuring volume, height, area and offset in 3D. DPC integration feeds paste data directly to printer for automatic closed-loop correction — maximising first-pass yield.</p>
+          <ul class="feature-list">
+            <li>3D volume, height and area measurement</li>
+            <li>Closed-loop feedback to stencil printer</li>
+            <li>Catches paste defects before component placement</li>
+            <li>Reduces downstream rework and scrap</li>
+            <li>Full SPC data logging and trend analysis</li>
+          </ul>
+          <div class="item-tags"><span class="item-tag">SPI</span><span class="item-tag">3D measurement</span><span class="item-tag">Post-print</span><span class="item-tag">DPC</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+        <div class="item-card reveal">
+          <div class="item-brand">Machine Vision Products</div>
+          <div class="item-name">Offline / Desktop AOI</div>
+          <p class="item-desc">Flexible offline AOI system for quality audits, first article inspection, R&D environments and contract manufacturers needing portable inspection capability outside the main SMT line.</p>
+          <ul class="feature-list">
+            <li>Offline and first article inspection</li>
+            <li>Same detection capability as inline systems</li>
+            <li>Quick board changeover and programme setup</li>
+            <li>Ideal for R&D, prototyping and auditing</li>
+          </ul>
+          <div class="item-tags"><span class="item-tag">Offline</span><span class="item-tag">Desktop</span><span class="item-tag">Flexible</span><span class="item-tag">R&D</span></div>
+          <a href="contact.html" class="enquire-btn">Request a quote →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="defect-section">
+    <div class="container">
+      <p class="section-label">What AOI detects</p>
+      <h2 class="section-title">Defects our systems find</h2>
+      <p class="section-sub">Comprehensive detection covering all common SMT assembly defect types — giving you 100% board coverage at production speed.</p>
+      <div class="defect-grid">
+        <div class="defect-card reveal"><div class="defect-dot"></div><div><div class="defect-name">Missing components</div><div class="defect-desc">Components not placed after reflow</div></div></div>
+        <div class="defect-card reveal"><div class="defect-dot"></div><div><div class="defect-name">Wrong components</div><div class="defect-desc">Incorrect part value, type or polarity</div></div></div>
+        <div class="defect-card reveal"><div class="defect-dot"></div><div><div class="defect-name">Misaligned components</div><div class="defect-desc">Shifted or rotated placement errors</div></div></div>
+        <div class="defect-card reveal"><div class="defect-dot"></div><div><div class="defect-name">Tombstoning</div><div class="defect-desc">Component standing on one end after reflow</div></div></div>
+        <div class="defect-card reveal"><div class="defect-dot"></div><div><div class="defect-name">Solder bridges</div><div class="defect-desc">Unintended connections between pads</div></div></div>
+        <div class="defect-card reveal"><div class="defect-dot"></div><div><div class="defect-name">Insufficient solder</div><div class="defect-desc">Below-minimum solder joint volume</div></div></div>
+        <div class="defect-card reveal"><div class="defect-dot"></div><div><div class="defect-name">Lifted leads</div><div class="defect-desc">IC leads not making pad contact</div></div></div>
+        <div class="defect-card reveal"><div class="defect-dot"></div><div><div class="defect-name">Solder paste issues (SPI)</div><div class="defect-desc">Volume, height and offset out of spec</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dpc-section">
+    <div class="container">
+      <p class="section-label">Dynamic Process Control</p>
+      <h2 class="section-title">Why DPC changes everything</h2>
+      <p class="section-sub">Traditional AOI detects defects. DPC prevents them — by feeding inspection data back to upstream processes in real time.</p>
+      <div class="dpc-grid">
+        <div class="dpc-card reveal"><div class="dpc-icon">📊</div><div class="dpc-title">Real-time feedback</div><p class="dpc-body">Inspection data fed back to printer and placement machines continuously — no manual adjustment needed</p></div>
+        <div class="dpc-card reveal"><div class="dpc-icon">🎯</div><div class="dpc-title">100% coverage</div><p class="dpc-body">Every board inspected at production speed — not sample-based like manual visual inspection</p></div>
+        <div class="dpc-card reveal"><div class="dpc-icon">📈</div><div class="dpc-title">Higher first-pass yield</div><p class="dpc-body">Closed-loop control prevents the process from drifting — keeping yield consistently high</p></div>
+        <div class="dpc-card reveal"><div class="dpc-icon">💰</div><div class="dpc-title">Lower rework cost</div><p class="dpc-body">Defects caught and prevented early cost a fraction of post-shipment failures or returns</p></div>
+        <div class="dpc-card reveal"><div class="dpc-icon">🗂️</div><div class="dpc-title">Full traceability</div><p class="dpc-body">Every inspection logged with SPC data for customer documentation and process improvement</p></div>
+        <div class="dpc-card reveal"><div class="dpc-icon">🛠️</div><div class="dpc-title">Local support</div><p class="dpc-body">Installation, programming and after-sales service from our Penang engineering team</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <h2>Want to see an AOI demonstration?</h2>
+    <p>We can arrange a demo at your facility or our Penang office. Contact us to book a time.</p>
+    <a href="contact.html" class="btn-primary">Book a demo →</a>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">epro<span>cent</span></div>
+      <ul class="footer-links"><li><a href="products.html">Products</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul>
+    </div>
+    <div class="footer-inner"><p class="footer-copy">© 2026 Eprocent Technology Sdn Bhd. All rights reserved. Designed &amp; developed by Aminat Olaide.</p></div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>
